@@ -15,8 +15,7 @@ def book_list(request, template_name='books_fbv_user/book_list.html'):
         book = Book.objects.all()
     else:
         book = Book.objects.filter(user=request.user)
-    data = {}
-    data['object_list'] = book
+    data = {'object_list': book}
     return render(request, template_name, data)
 
 @login_required
